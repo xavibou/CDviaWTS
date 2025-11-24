@@ -1,6 +1,7 @@
 @inproceedings{author20XXtitle,
-  title={Please cite me},
-  author={Author, First and Author, Second and Author, Third},
-  booktitle={Conference},
-  year={20XX}
+  title={Remote Sensing Change Detection via Weak Temporal Supervision},
+  author = {Bou, Xavier and Vincent, Elliot and Facciolo, Gabriele and Grompone von Gioi, Rafael and Morel, Jean-Michel and Ehret, Thibaud},
+  booktitle={Hosted on ArXiv},
+  year={2025}
 }
+
