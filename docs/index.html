@@ -117,218 +117,168 @@
 </style>
 
 <html>
+
 <head>
-	<title>Remote Sensing Change Detection via Weak Temporal Supervision</title>
-	<meta property="og:image" content="Path to my teaser.png"/> <!-- Facebook automatically scrapes this. Go to https://developers.facebook.com/tools/debug/ if you update and want to force Facebook to rescrape. -->
-	<meta property="og:title" content="Remote Sensing Change Detection via Weak Temporal Supervision" />
-	<meta property="og:description" content="Paper description." />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Remote Sensing Change Detection via Weak Temporal Supervision</title>
 
-	<!-- Get from Google Analytics -->
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src=""></script> 
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
-
-		gtag('config', 'UA-75863369-6');
-	</script>
+    <link rel="stylesheet" href="./resources/style.css">
 </head>
 
 <body>
-	<br>
-	<center>
-		<span style="font-size:30px">Remote Sensing Change Detection via Weak Temporal Supervision</span>
-		<table align=center width=600px>
-			<table align=center width=600px>
-				<tr>
-					<td align=center width=100px>
-						<center>
-							<span style="font-size:18px"><a href="https://xavibou.github.io/">Xavier Bou</a></span>
-						</center>
-					</td>
-					<td align=center width=100px>
-						<center>
-							<span style="font-size:18px"><a href="https://elliotvincent.github.io/">Elliot Vincent</a></span>
-						</center>
-					</td>
-					<td align=center width=100px>
-						<center>
-							<span style="font-size:18px"><a href="https://dev.ipol.im/~facciolo/">Gabriele Facciolo</a></span>
-						</center>
-					</td>
-				</tr>
-			</table>
-			<table align=center width=600px>
-				<tr>
-					<td align=center width=100px>
-						<center>
-							<span style="font-size:18px"><a href="https://www.rafaelgrompone.org/">Rafael Grompone</a></span>
-						</center>
-					</td>
-					<td align=center width=100px>
-						<center>
-							<span style="font-size:18px"><a href="https://sites.google.com/site/jeanmichelmorelcmlaenscachan/">Jean-Michel Morel</a></span>
-						</center>
-					</td>
-					<td align=center width=100px>
-						<center>
-							<span style="font-size:18px"><a href="https://scholar.google.com/citations?user=nnCC19cAAAAJ&hl=en">Thibaud Ehret</a></span>
-						</center>
-					</td>
-				</tr>
-			</table>
-			<table align=center width=250px>
-				<tr>
-					<td align=center width=120px>
-						<center>
-							<span style="font-size:18px"><a href=''>[Paper]</a></span>
-						</center>
-					</td>
-					<td align=center width=120px>
-						<center>
-							<span style="font-size:18px"><a href='https://github.com/richzhang/webpage-template'>[GitHub]</a></span><br>
-						</center>
-					</td>
-					<td align=center width=120px>
-						<center>
-							<span style="font-size:18px"><a href='https://github.com/richzhang/webpage-template'>[Data]</a></span><br>
-						</center>
-					</td>
-				</tr>
-			</table>
-		</table>
-	</center>
+<table align="center" width="850px">
+<tr>
+    <td style="text-align:center">
+        <h1 style="font-size:30px;">Remote Sensing Change Detection via Weak Temporal Supervision</h1>
 
-	<hr>
-	
-	<center>
-		<table align="center" width="850px">
-			<tr>
-				<td width="260px">
-					<center>
-						<img class="round" style="width:900px" src="./resources/teaser.png"/>
-					</center>
-				</td>
-			</tr>
-			<tr>
-				<td style="text-align:justify; font-size:14px; width:100%">
-					<b>Large-scale building change detection comparison on <a href="https://geoservices.ign.fr/bdortho">BD ORTHO</a> data (Lille metropolitan area in France, approximately 55.3 km²).</b> 
-					Availability of annotated datasets has always been a challenge for semantic change detection. To avoid this problem, we propose a novel weak temporal supervision strategy that leverages additional temporal observations of existing single-date annotated data. This allows us to train robust and scalable models, without requiring any new annotations.<br><br>
-					<u>Left:</u> map presenting the reference building changes (demolitions and constructions) derived from the French IGN's <a href="https://geoservices.ign.fr/ocsge">OCS GE data product</a>.<br>
-					<u>Middle:</u> result of a Dual UNet trained with our methodology, which closely aligns with the reference.<br>
-					<u>Right:</u> output of a Dual UNet trained on <a href="https://yb23.github.io/projects/cywd/">FSC-180k</a>, which produces numerous false positives.
-				</td>
-				
-			</tr>
-		</table>
-	</center>
+        <div class="author-group">
+            Xavier Bou<sup>1</sup>,
+            Elliot Vincent<sup>1</sup>,
+            Gabriele Facciolo<sup>1</sup>,
+            Rafael Grompone<sup>1</sup>,
+            Jean-Michel Morel<sup>1</sup>,
+            Thibaud Ehret<sup>1</sup>
+        </div>
 
-	<hr>
+        <div class="affiliation">
+            <sup>1</sup>Université Paris-Saclay, CentraleSupélec, Mathématiques et Informatique pour la Complexité et les Systèmes (MICS)
+        </div>
 
-	<table align="center" width="850px">
-		<tr>
-			<td style="text-align:center">
-				<h1 style="font-size:30px">Abstract</h1>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				Semantic change detection in remote sensing aims to identify land cover changes between bi-temporal image pairs. Progress in this area has been limited by the scarcity of annotated datasets, as pixel-level annotation is costly and time-consuming. To address this, recent methods leverage synthetic data or generate artificial change pairs, but out-of-domain generalization remains limited. In this work, we introduce a weak temporal supervision strategy that leverages additional temporal observations of existing single-temporal datasets, without requiring any new annotations. Specifically, we extend single-date remote sensing datasets with new observations acquired at different times and train a change detection model by assuming that real bi-temporal pairs mostly contain no change, while pairing images from different locations to generate change examples. To handle the inherent noise in these weak labels, we employ an object-aware change map generation and an iterative refinement process. We validate our approach on extended versions of the FLAIR and IAILD aerial datasets, achieving strong zero-shot and low-data regime performance across different benchmarks. Lastly, we showcase results over large areas in France, highlighting the scalability potential of our method.
-			</td>
-		</tr>
-	</table>
-	<br>
+        <div style="margin-top:15px;">
+            <a href="">[Paper]</a>
+            &nbsp;&nbsp;
+            <a href="">[Dataset]</a>
+            &nbsp;&nbsp;
+            <a href="">[Bibtex]</a>
+        </div>
+    </td>
+</tr>
+</table>
 
-	<hr>
+<br><hr><br>
 
-	<td style="text-align:center">
-		<h1 style="font-size:30px">Data</h1>
-	</td>
+<!-- Abstract -->
+<table align="center" width="850px">
+<tr>
+    <td>
+        <h1 style="font-size:30px; text-align:center;">Abstract</h1>
+    </td>
+</tr>
 
-	<table align=center width=420px>
-		<center>
-			<tr>
-				<td>
-				</td>
-			</tr>
-		</center>
-	</table>
-	<table align=center width=400px>
-		<tr>
-			<td align=center width=400px>
-				<td>
-					Building on the observation that annotation is significantly more expensive than data acquisition itself, we propose to extend existing single-temporal datasets with new, aligned temporal acquisitions, using their existing annotations as weak supervision for bi-temporal change detection.
-					Thus, we extend three single-date datasets to bitemporal:
-				</td>
-				<center>
-					<td><img class="round" style="width:450px" src="./resources/dataset_examples.png"/></td>
-				</center>
-			</td>
-		</tr>
-	</table>
-	<table align=center width=850px>
-		<center>
-			<tr>
-				<td>
-					Short description if wanted
-				</td>
-			</tr>
-		</center>
-	</table>
-	<table align=center width=800px>
-		<br>
-		<tr><center>
-			<span style="font-size:28px">&nbsp;<a href='https://github.com/richzhang/webpage-template'>[GitHub]</a>
-			</center>
-		</span>
-	</table>
-	<br>
-	<hr>
-	<table align=center width=450px>
-		<td style="text-align:center">
-			<h1 style="font-size:30px">Paper and Supplementary Material</h1>
-			<td><a href=""><img class="layered-paper-big" style="height:175px" src="./resources/paper.png"/></a></td>
-			<td>
-				<span style="font-size:14pt">
-					Xavier Bou, Elliot Vincent, Gabriele Facciolo,<br>
-					Rafael Grompone, Jean-Michel Morel, Thibaud Ehret.<br>
-					<b>Remote Sensing Change Detection via Weak Temporal Supervision</b><br>
-					2025.<br>
-					Hosted on <a href="">ArXiv</a><br>
-					<!-- (<a href="./resources/camera-ready.pdf">camera ready</a>)<br> -->
-					<span style="font-size:4pt"><a href=""><br></a></span>
-				</span>
-			</td>
-		</tr>
-	</table>
-	<br>
+<tr>
+    <td style="text-align:justify;">
+        <p>
+            Change detection in remote sensing requires aligned bi-temporal images and corresponding change maps.
+            However, annotation is expensive, and temporal pairs are often not available. We propose a weakly
+            supervised approach that builds change detection datasets from already existing single-temporal datasets
+            by adding newly acquired images of the same locations. Using the original annotations as weak supervision,
+            we derive automatically generated change masks without requiring manual labeling of the temporal pairs.
+            We demonstrate that this strategy produces high-quality training datasets and achieves competitive results
+            on remote-sensing benchmarks.
+        </p>
+    </td>
+</tr>
+</table>
 
-	<table align=center width=600px>
-		<tr>
-			<td><span style="font-size:14pt"><center>
-				<a href="./resources/bibtex.txt">[Bibtex]</a>
-			</center></td>
-		</tr>
-	</table>
+<br><hr><br>
 
-	<hr>
-	<br>
+<!-- Teaser -->
+<table align="center" width="850px">
+<tr>
+    <td style="text-align:center">
+        <h1 style="font-size:30px;">Teaser</h1>
+    </td>
+</tr>
 
-	<table align=center width=900px>
-		<tr>
-			<td width=400px>
-				<left>
-					<td style="text-align:center">
-						<h1 style="font-size:30px">Acknowledgements</h1>
-					</td>
-					This template was originally made by <a href="http://web.mit.edu/phillipi/">Phillip Isola</a> and <a href="http://richzhang.github.io/">Richard Zhang</a> for a <a href="http://richzhang.github.io/colorization/">colorful</a> ECCV project; the code can be found <a href="https://github.com/richzhang/webpage-template">here</a>.
-				</left>
-			</td>
-		</tr>
-	</table>
+<tr>
+    <td style="text-align:center;">
+        <img class="round" src="./resources/teaser.png" style="width:820px;">
+    </td>
+</tr>
+</table>
 
-<br>
+<br><hr><br>
+
+<!-- DATA SECTION (fixed) -->
+<table align="center" width="850px">
+<tr>
+    <td style="text-align:center">
+        <h1 style="font-size:30px">Data</h1>
+    </td>
+</tr>
+
+<tr>
+    <td style="text-align:justify;">
+        <p>
+            Building on the observation that annotation is significantly more expensive than data
+            acquisition itself, we propose to extend existing single-temporal datasets with new,
+            aligned temporal acquisitions, using their existing annotations as weak supervision for
+            bi-temporal change detection. Thus, we extend three single-date datasets to bitemporal:
+        </p>
+
+        <center>
+            <img class="round" style="width:450px; margin-top:10px;" src="./resources/dataset_examples.png"/>
+        </center>
+    </td>
+</tr>
+</table>
+
+<br><hr><br>
+
+<!-- PAPER SECTION (fixed) -->
+<table align="center" width="850px">
+<tr>
+    <td colspan="2" style="text-align:center">
+        <h1 style="font-size:30px">Paper and Supplementary Material</h1>
+    </td>
+</tr>
+
+<tr>
+    <td style="width:250px; text-align:center;">
+        <a href="">
+            <img class="layered-paper-big" style="height:175px" src="./resources/paper.png"/>
+        </a>
+    </td>
+
+    <td style="font-size:14pt; text-align:left; padding-left:20px;">
+        Xavier Bou, Elliot Vincent, Gabriele Facciolo,<br>
+        Rafael Grompone, Jean-Michel Morel, Thibaud Ehret.<br>
+        <b>Remote Sensing Change Detection via Weak Temporal Supervision</b><br>
+        2025.<br>
+        Hosted on <a href="">ArXiv</a>.
+    </td>
+</tr>
+
+<tr>
+    <td colspan="2" style="text-align:center; padding-top:10px;">
+        <a style="font-size:16pt;" href="./resources/bibtex.txt">[Bibtex]</a>
+    </td>
+</tr>
+</table>
+
+<br><hr><br>
+
+<!-- ACKNOWLEDGEMENTS (fixed) -->
+<table align="center" width="850px">
+<tr>
+    <td style="text-align:center;">
+        <h1 style="font-size:30px">Acknowledgements</h1>
+    </td>
+</tr>
+
+<tr>
+    <td style="text-align:justify;">
+        This template was originally made by
+        <a href="http://web.mit.edu/phillipi/">Phillip Isola</a> and
+        <a href="http://richzhang.github.io/">Richard Zhang</a> for a
+        <a href="http://richzhang.github.io/colorization/">colorful</a> ECCV project; the code can be
+        found <a href="https://github.com/richzhang/webpage-template">here</a>.
+    </td>
+</tr>
+</table>
+
+<br><br>
+
 </body>
 </html>
-
