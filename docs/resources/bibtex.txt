@@ -1,7 +1,6 @@
-@inproceedings{author20XXtitle,
+@article{bou2025remote,
   title={Remote Sensing Change Detection via Weak Temporal Supervision},
-  author = {Bou, Xavier and Vincent, Elliot and Facciolo, Gabriele and Grompone von Gioi, Rafael and Morel, Jean-Michel and Ehret, Thibaud},
-  booktitle={Hosted on ArXiv},
+  author={Bou, Xavier and Vincent, Elliot and Facciolo, Gabriele and Grompone von Gioi, Rafael and Morel, Jean-Michel and Ehret, Thibaud},
+  journal={arXiv preprint arXiv:},
   year={2025}
 }
-
