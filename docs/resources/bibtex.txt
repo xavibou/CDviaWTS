@@ -1,6 +1,6 @@
-@article{bou2025remote,
+@article{bou2026remote,
   title={Remote Sensing Change Detection via Weak Temporal Supervision},
   author={Bou, Xavier and Vincent, Elliot and Facciolo, Gabriele and Grompone von Gioi, Rafael and Morel, Jean-Michel and Ehret, Thibaud},
   journal={arXiv preprint arXiv:2601.02126},
-  year={2025}
+  year={2026}
 }
